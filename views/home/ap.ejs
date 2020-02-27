@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Add place</title>
+</head>
+
+<body>
+	<div>
+		<h1>Add Place</h1>
+	</div>
+
+	<a href="/home/vp"> Back to List</a> |
+	<a href="/logout"> logout</a><br>
+
+	<form method="post">
+		<table>
+
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="name" value=""><br>
+					<%if(typeof errors != "undefined"){%>
+					<% errors.forEach(function(err){ %>
+					<% if(err.param == 'name') {%>
+						<%= err.msg %>
+						<% } %>
+					 <% }); %>
+					<% } %></td>
+					
+
+				
+
+			</tr>
+			
+			<tr>
+				<td>Cost:</td>
+				<td><input type="int" name="price" value=""><br><%if(typeof errors != "undefined"){%>
+					<% errors.forEach(function(err){ %>
+					<% if(err.param == 'price') {%>
+						<%= err.msg %>
+						<% } %>
+					 <% }); %>
+					<% } %></td>
+			
+			
+			</tr>
+		
+			<tr>
+				<td>Travel media:</td>
+				<td><input type="text" name="quantity" value=""><br><%if(typeof errors != "undefined"){%>
+					<% errors.forEach(function(err){ %>
+					<% if(err.param == 'quantity') {%>
+						<%= err.msg %>
+						<% } %>
+					 <% }); %>
+					<% } %></td>
+			
+			
+			</tr>
+				<tr>
+			
+				<td></td>
+				<td><input type="submit" name="submit" value="Update"></td>
+			</tr>
+		</table>
+		
+	</form>
+
+</body>
+
+</html>

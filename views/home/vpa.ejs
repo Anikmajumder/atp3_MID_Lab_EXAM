@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<center>
+<body>
+	<div>
+		<h1>Place List</h1> 		
+	</div>
+
+	<a href="/home"> Back</a> |
+	<a href="/logout"> logout</a><br>
+	
+	<!-- <input type="text" name="" id="myInput" placeholder="name..." onkeyup="searchFun()"> <br> <br> -->
+
+	<table id="customers" border="1">
+		<tr>
+			<td>ID</td>
+			<td>place</td>
+			<td>Cost</td>
+
+			<td>Transation media</td>
+			<td>Action</td>
+			
+			
+			
+		</tr>
+		<% for(var i=0; i < userlist.length; i++){ %>
+		<tr>
+			<td><%= userlist[i].id %></td>
+			<td><%= userlist[i].placename%></td>
+			<td><%= userlist[i].cost%></td>
+			<td><%= userlist[i].t_medium %></td>
+			
+			
+			<td>
+				<a href="/home/ep/<%= userlist[i].id %>">EDIT</a> | 
+				<a href="/home/dp/<%= userlist[i].id %>">DELETE</a>  
+			</td>
+		</tr>
+		<% } %>
+    </table>
+    
+</body>
+</center>
+</html>
