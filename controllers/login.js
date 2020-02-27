@@ -2,23 +2,15 @@ var express 	= require('express');
 var router 		= express.Router();
 var userModel	= require.main.require('./models/user-model');
 
-// router.get('/', function(req, res){
-// 	console.log('login page requested!');
-// 	res.render('login/index');
-// });
+router.get('/', function(req, res){
+	console.log('login page requested!');
+ 	res.render('login/index');
+ });
 router.get('/register', function(req, res){
 	console.log('login page requested!');
 	res.render('login/register');
 });
-router.get('/', function(req, res){
-	userModel.vp(function(results){
-		if(results.length > 0){
-			res.render('login/index', {userlist: results});
-		}else{
-			res.send('invalid username/password');
-		}
-	});
-})
+
 router.post('/', function(req, res){
 		
 		var user ={
