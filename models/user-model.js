@@ -66,6 +66,17 @@ module.exports ={
 			callback(null);
 		});
 	},
+	sp: (keyword , callback) => {
+		const sql = "SELECT * FROM `place` WHERE `placename` LIKE ? OR `placename` LIKE ? OR `t_medium` LIKE ?"
+		let wrapped = '%'+keyword+'%';
+		
+		db.getResult(sql, [wrapped, wrapped, keyword], results => {
+			if(results && results.length>0)
+			callback(results);
+			else 
+			callback(null);
+		});
+	},
 	vp:function(callback){
 		
 		var sql = "select * from place";

@@ -22,6 +22,10 @@ router.get('/', function(req, res){
 				console.log(result.type)
 				res.render('home/user', {user: result});
 		}
+		else if(result.type=='user'){
+			console.log(result.type)
+			res.render('home/guser', {user: result});
+	}
 	});
 	}
 
@@ -183,6 +187,23 @@ router.post('/search', (req, res) => {
 	}
 	res.json([]);
 });
+router.get('/sp', function(req, res){
+	
+	res.render('home/sp');
+
+})
+router.post('/sp', (req, res) => {
+	if(req.body.sp && req.body.sp!='') {
+		return userModel.sp(req.body.sp, results => {
+			if(results && results.length>0) {
+				res.json(results);
+			} else {
+				res.json([]);
+			}
+		});
+	}
+	res.json([]);
+});
 router.post('/ap', function(req, res){
 	
 	
@@ -265,5 +286,6 @@ userModel.insert(user, function(status){
 }
 
 })
+
 module.exports = router;
 
